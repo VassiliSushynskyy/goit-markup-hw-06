@@ -757,13 +757,37 @@ body {
   margin-bottom: 4px;
 }
 .input-text {
+  display: block;
   width: 448px;
   height: 40px;
   margin-bottom: 10px;
+  padding-left: 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   border-radius: 4px;
   outline: none;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-text:focus,
+.textarea-coment:focus {
+  border: 1px solid var(--accent-color);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-text:focus + .input-icons {
+  fill: var(--accent-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-area {
+  position: relative;
+}
+
+.input-icons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-left: 12px;
+  transform: translateY(-50%);
 }
 .textarea-coment {
   resize: none;
@@ -776,6 +800,9 @@ body {
   outline: none;
   margin-bottom: 20px;
 }
+.textarea-coment::placeholder {
+  color: #75757580;
+}
 .text-form {
   margin-bottom: 12px;
   font-weight: 700;
@@ -783,12 +810,64 @@ body {
   line-height: 1.15;
   letter-spacing: 0.03em;
 }
+.input-text-checkbox {
+  display: flex;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.input-text-checkbox:checked + .checkbox-new {
+  background-color: var(--accent-color);
+  background-image: url(/img/icons.svg.icon-check);
+}
+.icon-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox-new {
+  display: flex;
+  position: absolute;
+  width: 16px;
+  height: 15px;
+  border: solid 2px var(--primary-color-text);
+  border-radius: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.check-section {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.input-label-checkbox {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.link-privacy {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  text-decoration-line: underline;
+  color: var(--accent-color);
+}
 .button-submit {
   display: block;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-  margin: auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
